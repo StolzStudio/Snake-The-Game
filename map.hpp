@@ -13,7 +13,9 @@
 
 #define LENGTH_STANDART 20
 
-#endif /* map_hpp */
+#define CHAR_BLOCK '#'
+#define CHAR_EMPTY '.'
+#define CHAR_APPLE '@'
 
 class Point {
 protected:
@@ -24,11 +26,21 @@ public:
     Point(int aX, int aY): _x(aX), _y(aY) {};
     ~Point() {};
     
+    friend const Point operator+=(const Point& aLeft, const Point& aRight);
+    friend const Point operator+(const Point& aLeft, const Point& aRight);
     friend bool operator==(const Point& aLeft, const Point& aRight);
     friend bool operator!=(const Point& aLeft, const Point& aRight);
     
+    Point& operator=(const Point& aRight){
+        _x = aRight._x;
+        _y = aRight._y;
+        return *this;
+    }
+    
     int x();
+    void x(int aX);
     int y();
+    void y(int aY);
 };
 
 
@@ -41,4 +53,8 @@ public:
     Map(int aWidth, int aHeight): _width(aWidth), _height(aHeight) {};
     ~Map() {};
     
+    void drawMap();
 };
+
+
+#endif /* map_hpp */
