@@ -40,3 +40,30 @@ bool operator!=(const Point& aLeft, const Point& aRight) {
     return !((aLeft._x == aRight._x)&&(aLeft._y == aRight._y));
 }
 
+Map::Map(int aFieldLength) {
+    _fieldLength  = aFieldLength;
+    mapData = new char*[_fieldLength];
+    for (int i = 0; i < _fieldLength; i++) {
+        mapData[i] = new char[_fieldLength];
+    }
+    for (int i = 0; i < _fieldLength; i++) {
+        mapData[i][0] = CHAR_BLOCK;
+        mapData[i][_fieldLength - 1] = CHAR_BLOCK;
+        mapData[0][i] = CHAR_BLOCK;
+        mapData[_fieldLength - 1][i] = CHAR_BLOCK;
+    }
+    for (int i = 1; i < _fieldLength - 1; i ++) {
+        for (int j = 1; j < _fieldLength - 1; j++) {
+            mapData[i][j] = CHAR_EMPTY;
+        }
+    }
+    
+}
+void Map::drawMap(std::ostream &out) {
+    for (int i = 0; i < _fieldLength; i++) {
+        for (int j = 0; j < _fieldLength; j++) {
+            out << mapData[i][j];
+        }
+        out << "\n";
+    }
+}

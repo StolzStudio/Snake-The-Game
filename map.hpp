@@ -10,6 +10,7 @@
 #define map_hpp
 
 #include <stdio.h>
+#include <iostream>
 
 #define LENGTH_STANDART 20
 
@@ -46,14 +47,13 @@ public:
 
 class Map {
 protected:
-    int _width;
-    int _height;
+    int _fieldLength;
+    char **mapData;
 public:
-    Map(): _width(LENGTH_STANDART), _height(LENGTH_STANDART) {};
-    Map(int aWidth, int aHeight): _width(aWidth), _height(aHeight) {};
+    Map(int aFieldLength);
     ~Map() {};
     
-    void drawMap();
+    void drawMap(std::ostream &out);
 };
 
 
