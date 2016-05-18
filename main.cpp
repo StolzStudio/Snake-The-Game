@@ -1,10 +1,3 @@
-//
-//  main.cpp
-//  snake
-//
-//  Created by Nicholas on 16.05.16.
-//  Copyright © 2016 Nicholas. All rights reserved.
-//
 
 #include <iostream>
 #include "snake.hpp"

@@ -1,10 +1,3 @@
-//
-//  map.hpp
-//  snake
-//
-//  Created by Nicholas on 16.05.16.
-//  Copyright © 2016 Nicholas. All rights reserved.
-//
 
 #ifndef map_hpp
 #define map_hpp
