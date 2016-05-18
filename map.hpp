@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <vector>
+using namespace std;
 
 #define LENGTH_STANDART 20
 
@@ -48,13 +50,17 @@ public:
 class Map {
 protected:
     int _fieldLength;
-    char **mapData;
 public:
+    char **mapData;
+
     Map(int aFieldLength);
     ~Map() {};
     
+    int fieldLength();
     void drawMap(std::ostream &out);
+    void drawSnake(vector<Point> aElement);
+    void drawApple(Point aPosition);
+    void clearMap();
 };
-
 
 #endif /* map_hpp */

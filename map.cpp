@@ -59,6 +59,11 @@ Map::Map(int aFieldLength) {
     }
     
 }
+
+int Map::fieldLength() {
+    return this->_fieldLength;
+}
+
 void Map::drawMap(std::ostream &out) {
     for (int i = 0; i < _fieldLength; i++) {
         for (int j = 0; j < _fieldLength; j++) {
@@ -66,4 +71,22 @@ void Map::drawMap(std::ostream &out) {
         }
         out << "\n";
     }
+}
+
+void Map::clearMap() {
+    for (int i = 1; i < _fieldLength - 1; i ++) {
+        for (int j = 1; j < _fieldLength - 1; j++) {
+            mapData[i][j] = CHAR_EMPTY;
+        }
+    }
+}
+
+void Map::drawSnake(vector<Point> aElement) {
+    for (int i = 0; i < aElement.size(); i++) {
+        mapData[aElement[i].y()][aElement[i].x()] = CHAR_BLOCK;
+    }
+}
+
+void Map::drawApple(Point aPosition) {
+    mapData[aPosition.y()][aPosition.x()] = CHAR_APPLE;
 }
