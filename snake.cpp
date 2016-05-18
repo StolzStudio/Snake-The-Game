@@ -7,6 +7,7 @@
 //
 
 #include "snake.hpp"
+#include <random>
 
 int Snake::length() {
     return this->_length;
@@ -26,4 +27,17 @@ void Snake::move(Point aKey, char aMapElement) {
         case CHAR_APPLE: { _positions.insert(_positions.end(), _positions[_length] + aKey); }
     }
     
+}
+
+void Apple::setApple(char **aMap, int aLength) {
+    int y = random() % (aLength - 1);
+    int x = random() % (aLength - 1);
+    if (aMap[y][x] != CHAR_BLOCK) {
+        this->_position = Point(x, y);
+    }
+    this->_isEat = false;
+}
+
+bool Apple::isEat() {
+    return this->_isEat;
 }
