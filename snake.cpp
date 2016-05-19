@@ -10,11 +10,11 @@ bool Snake::isDead() {
     return this->_isDead;
 }
 
-void Snake::move(Point aKey, char aMapElement) {
+void Snake::move(Point aKey, char mapElement) {
     for (int i = 0; i < _length - 1; i++) {
         _positions[i] = _positions[i+1];
     }
-    switch (aMapElement) {
+    switch (mapElement) {
         case CHAR_EMPTY: { _positions[_length] += aKey; }
         case CHAR_BLOCK: { _isDead = true; }
         case CHAR_APPLE: { _positions.insert(_positions.end(), _positions[_length] + aKey); }
