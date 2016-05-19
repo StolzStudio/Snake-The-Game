@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <ncurses.h>
 #include <vector>
 using namespace std;
 
@@ -50,7 +51,9 @@ public:
     ~Map() {};
     
     int fieldLength();
-    void drawMap(std::ostream &out);
+    Point getWay(int aKey);
+    char getElement(Point aKey, Point aPos);
+    void drawMap();
     void drawSnake(vector<Point> aElement);
     void drawApple(Point aPosition);
     void clearMap();
