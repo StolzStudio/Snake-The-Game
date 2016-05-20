@@ -30,22 +30,21 @@ bool operator!=(const Point& aLeft, const Point& aRight) {
 }
 
 Map::Map(int aFieldLength) {
-    _fieldLength  = aFieldLength;
-    mapData = new char*[_fieldLength];
-    for (int i = 0; i < _fieldLength; i++) {
-        mapData[i] = new char[_fieldLength];
+    this->_fieldLength = aFieldLength;
+    this->mapData      = new char*[_fieldLength];
+    
+    for (int i = 0; i < this->_fieldLength; i++) {
+        this->mapData[i] = new char[this->_fieldLength];
     }
-    for (int i = 0; i < _fieldLength; i++) {
-        mapData[i][0] = CHAR_BLOCK;
-        mapData[i][_fieldLength - 1] = CHAR_BLOCK;
-        mapData[0][i] = CHAR_BLOCK;
-        mapData[_fieldLength - 1][i] = CHAR_BLOCK;
+    
+    for (int i = 0; i < this->_fieldLength; i++) {
+        this->mapData[i][0]                = CHAR_BLOCK;
+        this->mapData[i][this->_fieldLength - 1] = CHAR_BLOCK;
+        this->mapData[0][i]                = CHAR_BLOCK;
+        this->mapData[this->_fieldLength - 1][i] = CHAR_BLOCK;
     }
-    for (int i = 1; i < _fieldLength - 1; i ++) {
-        for (int j = 1; j < _fieldLength - 1; j++) {
-            mapData[i][j] = CHAR_EMPTY;
-        }
-    }
+    
+    clearMap();
     
 }
 
@@ -55,32 +54,32 @@ int Map::fieldLength() {
 
 char Map::findElement(Point aSnakeHead, Point aUserWay) {
     Point charPos = aSnakeHead + aUserWay;
-    return mapData[charPos.y()][charPos.x()];
+    return this->mapData[charPos.y()][charPos.x()];
 }
 
 void Map::drawMap() {
-    for (int i = 0; i < _fieldLength; i++) {
-        for (int j = 0; j < _fieldLength; j++) {
-            addch(mapData[i][j]);
+    for (int i = 0; i < this->_fieldLength; i++) {
+        for (int j = 0; j < this->_fieldLength; j++) {
+            addch(this->mapData[i][j]);
         }
         addch('\n');
     }
 }
 
 void Map::clearMap() {
-    for (int i = 1; i < _fieldLength - 1; i ++) {
-        for (int j = 1; j < _fieldLength - 1; j++) {
-            mapData[i][j] = CHAR_EMPTY;
+    for (int i = 1; i < this->_fieldLength - 1; i ++) {
+        for (int j = 1; j < this->_fieldLength - 1; j++) {
+            this->mapData[i][j] = CHAR_EMPTY;
         }
     }
 }
 
 void Map::drawSnake(vector<Point> aElement) {
     for (int i = 0; i < aElement.size(); i++) {
-        mapData[aElement[i].y()][aElement[i].x()] = CHAR_BLOCK;
+        this->mapData[aElement[i].y()][aElement[i].x()] = CHAR_BLOCK;
     }
 }
 
 void Map::drawApple(Point aPosition) {
-    mapData[aPosition.y()][aPosition.x()] = CHAR_APPLE;
+    this->mapData[aPosition.y()][aPosition.x()] = CHAR_APPLE;
 }

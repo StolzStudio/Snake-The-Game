@@ -21,23 +21,31 @@ protected:
     int _x;
     int _y;
 public:
-    Point(): _x(1), _y(1) {};
-    Point(int aX, int aY): _x(aX), _y(aY) {};
+    Point():
+            _x(1),
+            _y(1)
+            {};
+    
+    Point(int aX, int aY):
+            _x(aX),
+            _y(aY)
+            {};
+    
     ~Point() {};
     
-    friend const Point operator+(const Point& aLeft, const Point& aRight);
-    friend bool operator==(const Point& aLeft, const Point& aRight);
-    friend bool operator!=(const Point& aLeft, const Point& aRight);
+    friend const Point operator+ (const Point& aLeft, const Point& aRight);
+    friend bool        operator==(const Point& aLeft, const Point& aRight);
+    friend bool        operator!=(const Point& aLeft, const Point& aRight);
     
-    Point& operator=(const Point& aRight){
-        _x = aRight._x;
-        _y = aRight._y;
+    Point& operator=(const Point& aRight) {
+        this->_x = aRight._x;
+        this->_y = aRight._y;
         return *this;
     }
     
-    int x();
+    int  x();
     void x(int aX);
-    int y();
+    int  y();
     void y(int aY);
 };
 
@@ -51,7 +59,7 @@ public:
     Map(int aFieldLength);
     ~Map() {};
     
-    int fieldLength();
+    int  fieldLength();
     char findElement(Point aSnakeHead, Point aUserWay);
     void drawMap();
     void drawSnake(vector<Point> aElement);
