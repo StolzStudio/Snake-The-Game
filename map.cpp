@@ -53,6 +53,11 @@ int Map::fieldLength() {
     return this->_fieldLength;
 }
 
+char Map::findElement(Point aSnakeHead, Point aUserWay) {
+    Point charPos = aSnakeHead + aUserWay;
+    return mapData[charPos.y()][charPos.x()];
+}
+
 void Map::drawMap() {
     for (int i = 0; i < _fieldLength; i++) {
         for (int j = 0; j < _fieldLength; j++) {

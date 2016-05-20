@@ -52,6 +52,7 @@ public:
     ~Map() {};
     
     int fieldLength();
+    char findElement(Point aSnakeHead, Point aUserWay);
     void drawMap();
     void drawSnake(vector<Point> aElement);
     void drawApple(Point aPosition);
