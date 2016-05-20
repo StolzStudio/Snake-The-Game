@@ -11,7 +11,7 @@ using namespace std;
 #define LENGTH_STANDART 20
 
 #define CHAR_BLOCK '#'
-#define CHAR_EMPTY '.'
+#define CHAR_EMPTY ' '
 #define CHAR_APPLE '@'
 
 
@@ -21,15 +21,13 @@ protected:
     int _x;
     int _y;
 public:
-    Point():
-            _x(1),
-            _y(1)
-            {};
+    Point(): _x(1),
+             _y(1)
+             {};
     
-    Point(int aX, int aY):
-            _x(aX),
-            _y(aY)
-            {};
+    Point(int aX, int aY): _x(aX),
+                           _y(aY)
+                           {};
     
     ~Point() {};
     
