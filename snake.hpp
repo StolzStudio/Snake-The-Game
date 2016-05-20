@@ -25,7 +25,7 @@ public:
     
     int length();
     bool isDead();
-    void move(Point aKey, char mapElement);
+    void move(Point aKey);
 };
 
 class Apple {

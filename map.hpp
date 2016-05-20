@@ -14,6 +14,8 @@ using namespace std;
 #define CHAR_EMPTY '.'
 #define CHAR_APPLE '@'
 
+
+
 class Point {
 protected:
     int _x;
@@ -51,8 +53,6 @@ public:
     ~Map() {};
     
     int fieldLength();
-    Point getWay(int aKey);
-    char getElement(Point aKey, Point aPos);
     void drawMap();
     void drawSnake(vector<Point> aElement);
     void drawApple(Point aPosition);

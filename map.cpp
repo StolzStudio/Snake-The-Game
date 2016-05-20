@@ -83,17 +83,3 @@ void Map::drawSnake(vector<Point> aElement) {
 void Map::drawApple(Point aPosition) {
     mapData[aPosition.y()][aPosition.x()] = CHAR_APPLE;
 }
-
-Point Map::getWay(int aKey) {
-    switch (aKey) {
-        case 119: return Point(0, 1);
-        case 100: return Point(1, 0);
-        case 115: return Point(0, -1);
-        case  97: return Point(-1, 0);
-    }
-    return Point(0, 0);
-}
-
-char Map::getElement(Point aKey, Point aPos) {
-    return mapData[aPos.y() + aKey.y()][aPos.x() + aKey.x()];
-}

@@ -30,8 +30,7 @@ int main(int argc, const char * argv[]) {
         map.drawApple(apple._position);
         map.drawMap();
         q = getch();
-        Point way = map.getWay(q);
-        actor.move(way, map.getElement(way, actor._positions[actor.length()]));
+        
     }
     
     endwin();
