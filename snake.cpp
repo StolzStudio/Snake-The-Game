@@ -19,6 +19,14 @@ void Snake::way(Point aUserWay) {
     this->_way = aUserWay;
 }
 
+int Snake::countApples() {
+    return this->_countApples;
+}
+
+void Snake::countApples(int aCount) {
+    this->_countApples = aCount;
+}
+
 void Snake::move(Point aUserWay, char aMapElement, bool *appleIsEat) {
     for (int i = 0; i < _length - 1; i++) {
         this->_positions[i] = this->_positions[i+1];
