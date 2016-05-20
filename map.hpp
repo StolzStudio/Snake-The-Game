@@ -25,7 +25,6 @@ public:
     Point(int aX, int aY): _x(aX), _y(aY) {};
     ~Point() {};
     
-    friend const Point operator+=(const Point& aLeft, const Point& aRight);
     friend const Point operator+(const Point& aLeft, const Point& aRight);
     friend bool operator==(const Point& aLeft, const Point& aRight);
     friend bool operator!=(const Point& aLeft, const Point& aRight);

@@ -17,10 +17,6 @@ void Point::y(int aY) {
     this->_y = aY;
 }
 
-const Point operator+=(const Point& aLeft, const Point& aRight) {
-    return Point(aLeft._x + aRight._x, aLeft._y + aRight._y);
-}
-
 const Point operator+(const Point& aLeft, const Point& aRight) {
     return Point(aLeft._x + aRight._x, aLeft._y + aRight._y);
 }
