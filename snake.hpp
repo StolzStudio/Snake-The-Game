@@ -12,6 +12,7 @@ class Snake {
 protected:
     int  _length;
     bool _isDead;
+    Point _way;
 public:
     vector<Point> _positions;
     
@@ -26,9 +27,11 @@ public:
     
     ~Snake() {};
     
-    int  length();
-    bool isDead();
-    void move(Point aUserWay, char aMapElement, bool *appleIsEat);
+    int   length();
+    bool  isDead();
+    Point way();
+    void  way(Point aUserWay);
+    void  move(Point aUserWay, char aMapElement, bool *appleIsEat);
 };
 
 class Apple {
