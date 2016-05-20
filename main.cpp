@@ -40,9 +40,11 @@ int main(int argc, const char * argv[]) {
         }
         map.drawApple(apple._position);
         map.drawMap();
+        
         q = getch();
-        actor.move(getWayPoint(q));
-        cout << actor._positions[actor.length()].x() << "|" << actor._positions[actor.length()].y();
+        Point userWay = getWayPoint(q);
+        char  mapElement = map.findElement(actor._positions[actor.length() - 1], userWay);
+        actor.move(userWay, mapElement, &apple._isEat);
     }
     
     endwin();

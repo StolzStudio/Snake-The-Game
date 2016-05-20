@@ -25,14 +25,13 @@ public:
     
     int length();
     bool isDead();
-    void move(Point aKey);
+    void move(Point aUserWay, char aMapElement, bool *appleIsEat);
 };
 
 class Apple {
-protected:
-    bool _isEat;
 public:
     Point _position;
+    bool _isEat;
     
     Apple(): _isEat(true) {};
     ~Apple() {};

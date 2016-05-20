@@ -10,11 +10,28 @@ bool Snake::isDead() {
     return this->_isDead;
 }
 
-void Snake::move(Point aKey) {
+void Snake::move(Point aUserWay, char aMapElement, bool *appleIsEat) {
     for (int i = 0; i < _length - 1; i++) {
         _positions[i] = _positions[i+1];
     }
-    _positions[_length - 1] = _positions[_length - 1] + aKey;
+    
+    switch (aMapElement) {
+        case CHAR_EMPTY: {
+                            _positions[_length - 1] = _positions[_length - 1] + aUserWay;
+                            break;
+                         }
+        case CHAR_BLOCK: {
+                            _isDead = true;
+                            break;
+                         }
+        case CHAR_APPLE: {
+                            _positions.insert(_positions.end(), _positions[_length - 1] + aUserWay);
+                            *appleIsEat = true;
+                            _length++;
+                            break;
+                         }
+    }
+    
 }
 
 void Apple::setApple(char **aMap, int aLength) {
