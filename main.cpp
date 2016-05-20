@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <unistd.h>
 #include "snake.hpp"
 #include "map.hpp"
 
@@ -33,7 +34,7 @@ int main(int argc, const char * argv[]) {
     
     initscr();
     noecho();
-    
+    timeout(0);
     erase();
     
     while (!actor.isDead()) {
@@ -50,6 +51,7 @@ int main(int argc, const char * argv[]) {
         
         map.drawApple(apple._position);
         map.drawMap();
+        printw("Your score: %d\n", actor.countApples());
         
         q = getch();
         
@@ -57,8 +59,14 @@ int main(int argc, const char * argv[]) {
         char  mapElement = map.findElement(actor._positions[actor.length() - 1], userWay);
         
         actor.move(userWay, mapElement, &apple._isEat);
+        usleep(80000);
     }
     
+    erase();
+    timeout(80000);
+    printw("YOU LOOSE!\nYour score: %d\n\n\n", actor.countApples());
+    getch();
+
     endwin();
     
     return 0;

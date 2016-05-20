@@ -44,6 +44,7 @@ void Snake::move(Point aUserWay, char aMapElement, bool *appleIsEat) {
         case CHAR_APPLE: {
                             this->_positions.insert(this->_positions.end(), this->_positions[_length - 1] + aUserWay);
                             *appleIsEat = true;
+                            this->_countApples++;
                             this->_length++;
                             break;
                          }
