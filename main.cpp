@@ -3,23 +3,33 @@
 #include "snake.hpp"
 #include "map.hpp"
 
+Snake actor = *new Snake(3, Point(5, 5));
+Map   map   = *new Map(20);
+Apple apple = *new Apple();
+
+Point checkWayReverseValid(Point aUserWay) {
+    Point reverseWay = Point(-aUserWay.x(), -aUserWay.y());
+    
+    if (reverseWay != actor.way()) {
+        actor.way(aUserWay);
+        return aUserWay;
+    } else {
+        return actor.way();
+    }
+}
 
 Point getWayPoint(int aKey) {
     switch (aKey) {
-        case 'w': return Point( 0, -1);
-        case 'a': return Point(-1,  0);
-        case 's': return Point( 0,  1);
-        case 'd': return Point( 1,  0);
-        default:  return Point( 0,  0);
+        case 'w': return checkWayReverseValid(Point( 0, -1));
+        case 'a': return checkWayReverseValid(Point(-1,  0));
+        case 's': return checkWayReverseValid(Point( 0,  1));
+        case 'd': return checkWayReverseValid(Point( 1,  0));
+        default:  return actor.way();
     }
 }
 
 int main(int argc, const char * argv[]) {
     int q = -1;
-    
-    Snake actor = *new Snake(3, Point(5, 5));
-    Map   map   = *new Map(20);
-    Apple apple = *new Apple();
     
     initscr();
     noecho();

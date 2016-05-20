@@ -18,7 +18,8 @@ public:
     
     Snake(int aLength, Point aPos): _isDead(false),
                                     _length(aLength),
-                                    _positions(_length)
+                                    _positions(_length),
+                                    _way(Point(1, 0))
     {
         for (int i = 0; i < _length; i++) {
             _positions[i] = Point((aPos.x() - _length + 1) + i, aPos.y());
