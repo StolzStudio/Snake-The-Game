@@ -14,7 +14,7 @@ void Snake::move(Point aKey) {
     for (int i = 0; i < _length - 1; i++) {
         _positions[i] = _positions[i+1];
     }
-    _positions[_length - 1] += aKey;    
+    _positions[_length - 1] = _positions[_length - 1] + aKey;
 }
 
 void Apple::setApple(char **aMap, int aLength) {
