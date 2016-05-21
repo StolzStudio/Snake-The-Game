@@ -6,6 +6,7 @@
 #include <vector>
 #include "map.hpp"
 
+
 using namespace std;
 
 class Snake {
@@ -37,20 +38,6 @@ public:
     int   countApples();
     void  countApples(int aCount);
     void  move(Point aUserWay, char aMapElement, bool *appleIsEat);
-};
-
-class Apple {
-private:
-    bool _changePos;
-public:
-    Point _position;
-    bool  _isEat;
-    
-    Apple(): _isEat(true) {};
-    ~Apple() {};
-    
-    void setApple(char **aMap, int aLength);
-    
 };
 
 #endif /* snake_hpp */
