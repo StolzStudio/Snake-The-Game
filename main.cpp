@@ -4,7 +4,7 @@
 #include "snake.hpp"
 #include "map.hpp"
 
-Snake actor = *new Snake(3, Point(5, 5));
+Snake actor = *new Snake(3, Point(3, 1));
 Map   map   = *new Map(20);
 Apple apple = *new Apple();
 
@@ -64,7 +64,7 @@ int main(int argc, const char * argv[]) {
     
     erase();
     timeout(80000);
-    printw("YOU LOOSE!\nYour score: %d\n\n\n", actor.countApples());
+    printw("YOU LOSE!\nYour score: %d\n\n\n", actor.countApples());
     getch();
 
     endwin();
